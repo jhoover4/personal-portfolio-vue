@@ -1,16 +1,14 @@
 <script setup>
-import { ref } from "vue";
-
 const portfolios = ref([]);
 
 const portfolioItemExample = {
-  "title": "",
-  "url": "",
-  "img": {
-    "alt": "",
-    "url": ""
+  title: "",
+  url: "",
+  img: {
+    alt: "",
+    url: "",
   },
-  "languagesUsed": []
+  languagesUsed: [],
 };
 
 portfolios.value.push(portfolioItemExample);
@@ -32,7 +30,7 @@ portfolios.value.push(portfolioItemExample);
           <div class="portfolio-item-title px-md-5">
             <p>{{ portfolioItem.title }}</p>
             <div class="divider"></div>
-            <i v-for="language in portfolioItem.languagesUsed" class="fab {{ language }}"></i>
+            <i v-for="language in portfolioItem.languagesUsed" class="fab" :class="language"></i>
           </div>
           <span></span>
         </a>
