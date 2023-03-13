@@ -1,14 +1,9 @@
 <script scoped>
-// const $hamburger = $(".hamburger");
-// const $mainHomePageDiv = $(".fade-in");
-// navToggle();
-//
-// //hamburger
-// $hamburger.click(function () {
-//     $(this).toggleClass("is-active");
-//
-// });
-//
+const hamburgerOpen = ref(false);
+
+const onHamburgerClick = () => {
+  hamburgerOpen.value = true;
+};
 // //fade-in
 // $mainHomePageDiv.show().animate({opacity: 1, top: 0}, 1400);
 
@@ -44,15 +39,14 @@ function navToggle() {
   //     $links.css("marginTop", "25%");
   // }
 }
-
 </script>
 
 <template>
   <nav id="navigation" class="mt-3 pl-md-4">
-    <button onclick="navToggle" class="hamburger hamburger--spin" type="button">
-                  <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                  </span>
+    <button class="hamburger hamburger--spin" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
     </button>
     <ul class="menulist underline-expand">
       <NuxtLink to="/" class="menuitems">Home</NuxtLink>
@@ -61,3 +55,9 @@ function navToggle() {
     </ul>
   </nav>
 </template>
+
+<style scoped>
+.nav-open.menuitems {
+  margin-top: 50px;
+}
+</style>
