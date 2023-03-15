@@ -19,7 +19,6 @@ const portfolios = ref([
   <div id="home-body" class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        <Navigation />
         <div class="left-side main fade-in">
           <h1>Welcome</h1>
           <p>To Jordan Hoover's Portfolio</p>

@@ -6,4 +6,5 @@ export default defineNuxtConfig({
   telemetry: false,
   modules: ["@nuxt/content"],
   buildModules: ["nuxt-vite"],
+  css: ["@/assets/scss/style.scss"],
 });
