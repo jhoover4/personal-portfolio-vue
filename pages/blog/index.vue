@@ -1,4 +1,4 @@
-<script scoped>
+<script setup>
 const posts = ref([]);
 </script>
 
