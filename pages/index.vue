@@ -35,15 +35,17 @@ const updateActive = () => {
       <div class="col-sm-6">
         <transition appear name="fade-in">
           <div class="left-side main">
-            <h1>Welcome</h1>
-            <p>To Jordan Hoover's Portfolio</p>
+            <h1>Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.</h1>
+            <p>I've given shape to, created in, and fretted with applications on all sides of the web stack. Pythonista,
+              Javascripter, Java enthusiast.</p>
             <div class="contact">
               <a :href="`mailto:${email}`">Contact Me</a>
             </div>
             <transition appear name="fade-in-links">
               <div class="portfolio-links">
-                <a href="https://www.linkedin.com/in/jordanhoover/" target="_blank">LinkedIn</a>
                 <a href="https://github.com/jhoover4" target="_blank">Github</a>
+                <a href="https://codepen.io/jhoover4/" target="_blank">CodePen</a>
+                <a href="https://www.linkedin.com/in/jordanhoover/" target="_blank">LinkedIn</a>
               </div>
             </transition>
           </div>
