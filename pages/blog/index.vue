@@ -9,7 +9,7 @@ posts.reverse();
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2">
         <div class="intro">My thoughts on software and whatever else comes to mind.</div>
-        <div v-for="post in posts" class="blog-post-listing pt-3 pb-3">
+        <div v-for="post in posts" :key="post._id" class="blog-post-listing pt-3 pb-3">
           <h2 class="underline-expand">
             <a :href="post._path">{{ post.title }}</a>
           </h2>

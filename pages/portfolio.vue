@@ -6,9 +6,9 @@ const portfolioItemExample = {
   url: "",
   img: {
     alt: "",
-    url: "",
+    url: ""
   },
-  languagesUsed: [],
+  languagesUsed: []
 };
 
 portfolios.value.push(portfolioItemExample);
@@ -18,7 +18,9 @@ portfolios.value.push(portfolioItemExample);
   <div class="container mt-5 gallery-wrapper">
     <header>
       <h1 class="title">Portfolio</h1>
-      Intro text goes here
+      <p>Just a few examples of my work, see my <a
+        href="https://github.com/jhoover4">GitHub</a> for project source
+        code.<br><b>I'm currently working on rehosting my apps!</b> Please see the <a href="/blog/heroku">explanation here</a>.</p>
     </header>
     <div class="gallery-container">
       <div v-for="portfolioItem in portfolios"
