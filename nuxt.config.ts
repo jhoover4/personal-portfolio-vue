@@ -6,6 +6,7 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/png", href: "/img/icons8-coderwall-48.png" }]
     }
   },
+  target: "static",
   telemetry: false,
   modules: ["@nuxt/content"],
   buildModules: ["nuxt-vite", "@nuxtjs/google-fonts"],
