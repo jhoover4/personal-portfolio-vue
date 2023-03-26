@@ -8,7 +8,7 @@ const onHamburgerClick = () => {
 
 <template>
   <nav id="navigation" class="mt-3 pl-md-4">
-    <button class="hamburger hamburger--spin" type="button" :class="{ hamburgerOpen: 'is-active' }"
+    <button class="hamburger hamburger--spin" type="button" :class="{ 'is-active': hamburgerOpen }"
             @click="onHamburgerClick">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>

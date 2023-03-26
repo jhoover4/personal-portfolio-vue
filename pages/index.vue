@@ -5,27 +5,46 @@ const portfolios = ref([
   {
     active: true,
     title: "TPWF Site",
-    url: "www.tpwf.org",
+    url: "https://www.tpwf.org",
     img: {
       alt: "TPWF Site",
       url: "/img/tpwf-site.jpg"
-    },
-    languagesUsed: []
+    }
   },
   {
-    active: true,
+    active: false,
     title: "We Will Not Be Tamed Site",
     url: "https://www.wewillnotbetamed.org/",
     img: {
       alt: "We Will Not Be Tamed Site",
       url: "/img/wwnbt-site.jpg"
-    },
-    languagesUsed: []
+    }
   }
 ]);
 
-const updateActive = () => {
+const currentPortfolioIndex = computed(() => portfolios.value.findIndex((portfolio) => portfolio.active));
+const lastIndex = computed(() => portfolios.value.length - 1);
 
+const prevPortfolio = () => {
+  const currentIndex = currentPortfolioIndex.value;
+  portfolios.value[currentIndex].active = false;
+
+  if (currentIndex === 0) {
+    portfolios.value[lastIndex.value].active = true;
+  } else {
+    portfolios.value[currentIndex - 1].active = true;
+  }
+};
+
+const nextPortfolio = () => {
+  const currentIndex = currentPortfolioIndex.value;
+  portfolios.value[currentIndex].active = false;
+
+  if (currentIndex === lastIndex.value) {
+    portfolios.value[0].active = true;
+  } else {
+    portfolios.value[currentIndex + 1].active = true;
+  }
 };
 </script>
 
@@ -59,7 +78,6 @@ const updateActive = () => {
               :key="index"
               class="carousel-item"
               :class="portfolioItem.active ? 'active' : ''"
-              @click="updateActive"
             >
               <img
                 class="d-block portfolio-img"
@@ -76,6 +94,7 @@ const updateActive = () => {
             href="#carouselControls"
             role="button"
             data-slide="prev"
+            @click.prevent="prevPortfolio"
           >
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -85,6 +104,7 @@ const updateActive = () => {
             href="#carouselControls"
             role="button"
             data-slide="next"
+            @click.prevent="nextPortfolio"
           >
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
