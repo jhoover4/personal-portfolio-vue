@@ -3,13 +3,17 @@ const hamburgerOpen = ref(false);
 
 const onHamburgerClick = () => {
   hamburgerOpen.value = !hamburgerOpen.value;
-}
+};
 </script>
 
 <template>
   <nav id="navigation" class="mt-3 pl-md-4">
-    <button class="hamburger hamburger--spin" type="button" :class="{ 'is-active': hamburgerOpen }"
-            @click="onHamburgerClick">
+    <button
+      class="hamburger hamburger--spin"
+      type="button"
+      :class="{ 'is-active': hamburgerOpen }"
+      @click="onHamburgerClick"
+    >
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
@@ -65,12 +69,12 @@ nav {
   color: black;
 
   &:after {
-    content: '';
+    content: "";
     display: block;
     width: 0;
     height: 1px;
     background: #fff;
-    transition: width .2s;
+    transition: width 0.2s;
   }
 
   &:hover::after {
@@ -90,36 +94,5 @@ nav {
 
 .nav-open.menuitems {
   margin-top: 50px;
-}
-
-.underline-expand a {
-  position: relative;
-  padding-bottom: 0;
-
-  &:hover {
-    text-decoration: none;
-    color: #222;
-  }
-
-  &:before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 5px;
-    left: 0;
-    background-color: #8b9480;
-    visibility: hidden;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -webkit-transition: all 0.3s ease-in-out 0s;
-    transition: all 0.3s ease-in-out 0s;
-  }
-
-  &:hover:before {
-    visibility: visible;
-    -webkit-transform: scaleX(1);
-    transform: scaleX(1);
-  }
 }
 </style>

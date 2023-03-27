@@ -1,6 +1,9 @@
 <script setup>
-const email = ref("jordan@hoovermld.com");
+definePageMeta({
+  layout: "custom",
+});
 
+const email = ref("jordan@hoovermld.com");
 const portfolios = ref([
   {
     active: true,
@@ -8,8 +11,8 @@ const portfolios = ref([
     url: "https://www.tpwf.org",
     img: {
       alt: "TPWF Site",
-      url: "/img/tpwf-site.jpg"
-    }
+      url: "/img/tpwf-site.jpg",
+    },
   },
   {
     active: false,
@@ -17,12 +20,14 @@ const portfolios = ref([
     url: "https://www.wewillnotbetamed.org/",
     img: {
       alt: "We Will Not Be Tamed Site",
-      url: "/img/wwnbt-site.jpg"
-    }
-  }
+      url: "/img/wwnbt-site.jpg",
+    },
+  },
 ]);
 
-const currentPortfolioIndex = computed(() => portfolios.value.findIndex((portfolio) => portfolio.active));
+const currentPortfolioIndex = computed(() =>
+  portfolios.value.findIndex((portfolio) => portfolio.active)
+);
 const lastIndex = computed(() => portfolios.value.length - 1);
 
 const prevPortfolio = () => {
@@ -52,19 +57,31 @@ const nextPortfolio = () => {
   <div id="home-body" class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
+        <Navigation />
         <transition appear name="fade-in">
           <div class="left-side main">
-            <h1>Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.</h1>
-            <p>I've given shape to, created in, and fretted with applications on all sides of the web stack. Pythonista,
-              Javascripter, Java enthusiast.</p>
+            <h1>
+              Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.
+            </h1>
+            <p>
+              I've given shape to, created in, and fretted with applications on
+              all sides of the web stack. Pythonista, Javascripter, Java
+              enthusiast.
+            </p>
             <div class="contact">
               <a :href="`mailto:${email}`">Contact Me</a>
             </div>
             <transition appear name="fade-in-links">
               <div class="portfolio-links">
                 <a href="https://github.com/jhoover4" target="_blank">Github</a>
-                <a href="https://codepen.io/jhoover4/" target="_blank">CodePen</a>
-                <a href="https://www.linkedin.com/in/jordanhoover/" target="_blank">LinkedIn</a>
+                <a href="https://codepen.io/jhoover4/" target="_blank"
+                  >CodePen</a
+                >
+                <a
+                  href="https://www.linkedin.com/in/jordanhoover/"
+                  target="_blank"
+                  >LinkedIn</a
+                >
               </div>
             </transition>
           </div>
@@ -143,7 +160,7 @@ const nextPortfolio = () => {
   height: auto;
   @media (max-width: 576px) {
     max-width: 100%;
-    border-radius: .25rem;
+    border-radius: 0.25rem;
   }
 }
 
@@ -151,7 +168,7 @@ const nextPortfolio = () => {
   margin-top: 40%;
 
   a {
-    font-family: 'Muli', sans-serif;
+    font-family: "Muli", sans-serif;
     font-weight: 300;
     text-transform: lowercase;
     padding-right: 7%;
