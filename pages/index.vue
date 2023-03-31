@@ -58,7 +58,7 @@ const nextPortfolio = () => {
     <div class="row">
       <div class="col-sm-6">
         <Navigation />
-        <transition appear name="fade-in">
+        <Transition appear name="fade">
           <div class="left-side main">
             <h1>
               Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.
@@ -71,7 +71,7 @@ const nextPortfolio = () => {
             <div class="contact">
               <a :href="`mailto:${email}`">Contact Me</a>
             </div>
-            <transition appear name="fade-in-links">
+            <Transition appear name="fade-in-links">
               <div class="portfolio-links">
                 <a href="https://github.com/jhoover4" target="_blank">Github</a>
                 <a href="https://codepen.io/jhoover4/" target="_blank"
@@ -85,7 +85,7 @@ const nextPortfolio = () => {
               </div>
             </transition>
           </div>
-        </transition>
+        </Transition>
       </div>
       <div class="right-side col-sm-6">
         <div id="carouselControls" class="carousel slide" data-ride="carousel">

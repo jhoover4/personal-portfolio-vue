@@ -1,17 +1,91 @@
 <script setup>
-const portfolios = ref([]);
+const languageChoices = new Map([
+  ["python", "fa-python"],
+  ["javascript", "fa-js"],
+  ["react", "fa-react"],
+  ["vue", "fa-vue"],
+  ["node", "fa-node"],
+  ["php", "fa-php"],
+  ["css", "fa-css3-alt"],
+  ["sass", "fa-sass"],
+  ["api", "fa-connectdevelop"]
+]);
 
-const portfolioItemExample = {
-  title: "",
-  url: "",
-  img: {
-    alt: "",
-    url: ""
+const portfolios = ref([
+  {
+    title: "Mineral Catalog",
+    url: "https://www.google.com",
+    img: {
+      alt: "We Will Not Be Tamed Site",
+      url: "/img/wwnbt-site.jpg",
+    },
+    languagesUsed: ["python", "api"]
   },
-  languagesUsed: []
-};
+  {
+    title: "Pug or Ugh API",
+    url: "https://www.google.com",
+    img: {
+      alt: "We Will Not Be Tamed Site",
+      url: "/img/wwnbt-site.jpg",
+    },
+    languagesUsed: ["python", "javascript", "react", "api"]
+  },
+  {
+    title: "Morisson Design Site",
+    url: "https://www.google.com",
+    img: {
+      alt: "We Will Not Be Tamed Site",
+      url: "/img/wwnbt-site.jpg",
+    },
+    languagesUsed: ["python", "javascript", "sass"]
+  },
+  {
+    title: "FCC APIs",
+    url: "https://www.google.com",
+    img: {
+      alt: "We Will Not Be Tamed Site",
+      url: "/img/wwnbt-site.jpg",
+    },
+    languagesUsed: ["python", "css", "sass", "api"]
+  },
+  {
+    title: "Gear Up For Game Wardens",
+    url: "https://www.gearupforgamewardens.org/",
+    img: {
+      alt: "We Will Not Be Tamed Site",
+      url: "/img/gear-up-for-game-wardens.png",
+    },
+    languagesUsed: ["php", "javascript", "css"]
+  },
+  {
+    title: "We Will Not Be Tamed Site",
+    url: "https://www.wewillnotbetamed.org",
+    img: {
+      alt: "We Will Not Be Tamed Site",
+      url: "/img/wwnbt-site.jpg",
+    },
+    languagesUsed: ["php", "javascript", "css"]
+  },
+  {
+    title: "Password Strength Meter",
+    url: "https://elboletaire.github.io/password-strength-meter/",
+    img: {
+      alt: "We Will Not Be Tamed Site",
+      url: "/img/wwnbt-site.jpg",
+    },
+    languagesUsed: ["javascript", "node", "css"]
+  }
+]);
 
-portfolios.value.push(portfolioItemExample);
+const getIcon = (key) => {
+  const icon = languageChoices.get(key);
+
+  if (!icon) {
+    console.error(icon, " icon not found in fontawesome!")
+  }
+
+  return icon;
+};
 </script>
 
 <template>
@@ -20,19 +94,19 @@ portfolios.value.push(portfolioItemExample);
       <h1 class="title">Portfolio</h1>
       <p>Just a few examples of my work, see my <a
         href="https://github.com/jhoover4">GitHub</a> for project source
-        code.<br><b>I'm currently working on rehosting my apps!</b> Please see the <a href="/blog/heroku">explanation here</a>.</p>
+        code.<br><b>I'm currently working on rehosting my apps!</b> Please see the <a href="/blog/heroku">explanation
+          here</a>.</p>
     </header>
     <div class="gallery-container">
       <div v-for="portfolioItem in portfolios"
            class="col-xs-12 col-sm-6 col-md-4 col-lg-4 cell-container gallery-thumbnail-container">
-        <a :href="portfolioItem.url" :title="portfolioItem.img.alt" target="_blank">
           <img :src="portfolioItem.img.url" :alt="portfolioItem.img.alt" class="gallery-thumbnail image">
-        </a>
         <a class="overlay" :href="portfolioItem.url" :title="portfolioItem.img.alt" target="_blank">
           <div class="portfolio-item-title px-md-5">
             <p>{{ portfolioItem.title }}</p>
             <div class="divider"></div>
-            <i v-for="(language, index) in portfolioItem.languagesUsed" :key="index" class="fab" :class="language"></i>
+            <font-awesome-icon style="margin-right: .5rem" v-for="(language, index) in portfolioItem.languagesUsed" :key="index"
+                               :icon="['fab', getIcon(language)]"></font-awesome-icon>
           </div>
           <span></span>
         </a>
