@@ -4,6 +4,7 @@ definePageMeta({
 });
 
 const doTransition = ref(false);
+const portfolioLinksMargin = ref(40);
 
 const email = ref("jordan@hoovermld.com");
 const portfolios = ref([
@@ -24,6 +25,21 @@ const portfolios = ref([
       alt: "We Will Not Be Tamed Site",
       url: "/img/wwnbt-site.jpg",
     },
+  },
+]);
+
+const portfolioLinks = ref([
+  {
+    name: "Github",
+    url: "https://github.com/jhoover4",
+  },
+  {
+    name: "CodePen",
+    url: "https://codepen.io/jhoover4",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/jordanhoover",
   },
 ]);
 
@@ -54,6 +70,14 @@ const nextPortfolio = () => {
   }
 };
 
+const onNavOpen = () => {
+  portfolioLinksMargin.value = 25;
+};
+
+const onNavClose = () => {
+  portfolioLinksMargin.value = 40;
+};
+
 onMounted(() => {
   doTransition.value = true;
 });
@@ -63,8 +87,8 @@ onMounted(() => {
   <div id="home-body" class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        <Navigation />
-        <Transition appear name="fade">
+        <Navigation @nav-open="onNavOpen" @nav-close="onNavClose" />
+        <Transition appear>
           <div class="left-side main" v-if="doTransition">
             <h1>
               Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.
@@ -74,16 +98,19 @@ onMounted(() => {
               all sides of the web stack. Pythonista, Javascripter, Java
               enthusiast.
             </p>
-            <div class="contact">
-              <a :href="`mailto:${email}`">Contact Me</a>
+            <div>
+              <a class="contact" :href="`mailto:${email}`">Contact Me</a>
             </div>
-            <div class="portfolio-links">
-              <a href="https://github.com/jhoover4" target="_blank">Github</a>
-              <a href="https://codepen.io/jhoover4/" target="_blank">CodePen</a>
+            <div
+              class="portfolio-links"
+              :style="{ marginTop: portfolioLinksMargin + '%' }"
+            >
               <a
-                href="https://www.linkedin.com/in/jordanhoover/"
+                v-for="(link, index) in portfolioLinks"
+                :key="index"
+                :href="link.url"
                 target="_blank"
-                >LinkedIn</a
+                >{{ link.name }}</a
               >
             </div>
           </div>
@@ -134,7 +161,7 @@ onMounted(() => {
   </div>
   <footer>
     <h1>Don't be shy.</h1>
-    <a :href="`mailto:${email}`">Say Hello</a>
+    <a class="contact" :href="`mailto:${email}`">Say Hello</a>
   </footer>
 </template>
 
@@ -147,14 +174,23 @@ onMounted(() => {
   padding: 15% 10%;
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.contact {
+  color: #8b9480;
+  text-decoration: underline;
+
+  &:hover {
+    color: #8b9480;
+  }
+}
+
+.v-enter-active,
+.v-leave-active {
   transition: opacity 2s ease-out;
   top: 5%;
 }
 
-.fade-enter-from,
-.fade-leave-to {
+.v-enter-from,
+.v-leave-to {
   opacity: 0;
 }
 
@@ -168,6 +204,7 @@ onMounted(() => {
 
 .portfolio-links {
   margin-top: 40%;
+  transition: all 0.5s;
 
   a {
     font-family: "Muli", sans-serif;
@@ -182,16 +219,6 @@ onMounted(() => {
   }
 }
 
-.fade-in-links-enter-active,
-.fade-in-links-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.fade-in-links-enter-from,
-.fade-in-links-leave-to {
-  opacity: 0;
-}
-
 .carousel-caption {
   text-align: left;
 
@@ -200,11 +227,6 @@ onMounted(() => {
     text-decoration: underline solid white;
     text-transform: capitalize;
   }
-}
-
-.contact a {
-  color: #8b9480;
-  text-decoration: underline;
 }
 
 footer {

@@ -8,7 +8,7 @@ const languageChoices = new Map([
   ["php", "fa-php"],
   ["css", "fa-css3-alt"],
   ["sass", "fa-sass"],
-  ["api", "fa-connectdevelop"]
+  ["api", "fa-connectdevelop"],
 ]);
 
 const portfolios = ref([
@@ -19,7 +19,7 @@ const portfolios = ref([
       alt: "We Will Not Be Tamed Site",
       url: "/img/wwnbt-site.jpg",
     },
-    languagesUsed: ["python", "api"]
+    languagesUsed: ["python", "api"],
   },
   {
     title: "Pug or Ugh API",
@@ -28,7 +28,7 @@ const portfolios = ref([
       alt: "We Will Not Be Tamed Site",
       url: "/img/wwnbt-site.jpg",
     },
-    languagesUsed: ["python", "javascript", "react", "api"]
+    languagesUsed: ["python", "javascript", "react", "api"],
   },
   {
     title: "Morisson Design Site",
@@ -37,16 +37,7 @@ const portfolios = ref([
       alt: "We Will Not Be Tamed Site",
       url: "/img/wwnbt-site.jpg",
     },
-    languagesUsed: ["python", "javascript", "sass"]
-  },
-  {
-    title: "FCC APIs",
-    url: "https://www.google.com",
-    img: {
-      alt: "We Will Not Be Tamed Site",
-      url: "/img/wwnbt-site.jpg",
-    },
-    languagesUsed: ["python", "css", "sass", "api"]
+    languagesUsed: ["python", "javascript", "sass"],
   },
   {
     title: "Gear Up For Game Wardens",
@@ -55,7 +46,7 @@ const portfolios = ref([
       alt: "We Will Not Be Tamed Site",
       url: "/img/gear-up-for-game-wardens.png",
     },
-    languagesUsed: ["php", "javascript", "css"]
+    languagesUsed: ["php", "javascript", "css"],
   },
   {
     title: "We Will Not Be Tamed Site",
@@ -64,7 +55,7 @@ const portfolios = ref([
       alt: "We Will Not Be Tamed Site",
       url: "/img/wwnbt-site.jpg",
     },
-    languagesUsed: ["php", "javascript", "css"]
+    languagesUsed: ["php", "javascript", "css"],
   },
   {
     title: "Password Strength Meter",
@@ -73,15 +64,15 @@ const portfolios = ref([
       alt: "We Will Not Be Tamed Site",
       url: "/img/wwnbt-site.jpg",
     },
-    languagesUsed: ["javascript", "node", "css"]
-  }
+    languagesUsed: ["javascript", "node", "css"],
+  },
 ]);
 
 const getIcon = (key) => {
   const icon = languageChoices.get(key);
 
   if (!icon) {
-    console.error(icon, " icon not found in fontawesome!")
+    console.error(icon, " icon not found in fontawesome!");
   }
 
   return icon;
@@ -92,21 +83,38 @@ const getIcon = (key) => {
   <div class="container mt-5 gallery-wrapper">
     <header>
       <h1 class="title">Portfolio</h1>
-      <p>Just a few examples of my work, see my <a
-        href="https://github.com/jhoover4">GitHub</a> for project source
-        code.<br><b>I'm currently working on rehosting my apps!</b> Please see the <a href="/blog/heroku">explanation
-          here</a>.</p>
+      <p>
+        Just a few examples of my work, see my
+        <a href="https://github.com/jhoover4">GitHub</a> for project source
+        code.<br /><b>I'm currently working on rehosting my apps!</b> Please see
+        the <a href="/blog/heroku">explanation here</a>.
+      </p>
     </header>
     <div class="gallery-container">
-      <div v-for="portfolioItem in portfolios"
-           class="col-xs-12 col-sm-6 col-md-4 col-lg-4 cell-container gallery-thumbnail-container">
-          <img :src="portfolioItem.img.url" :alt="portfolioItem.img.alt" class="gallery-thumbnail image">
-        <a class="overlay" :href="portfolioItem.url" :title="portfolioItem.img.alt" target="_blank">
+      <div
+        v-for="portfolioItem in portfolios"
+        class="col-xs-12 col-sm-6 col-md-4 col-lg-4 cell-container gallery-thumbnail-container"
+      >
+        <img
+          :src="portfolioItem.img.url"
+          :alt="portfolioItem.img.alt"
+          class="gallery-thumbnail image"
+        />
+        <a
+          class="overlay"
+          :href="portfolioItem.url"
+          :title="portfolioItem.img.alt"
+          target="_blank"
+        >
           <div class="portfolio-item-title px-md-5">
             <p>{{ portfolioItem.title }}</p>
             <div class="divider"></div>
-            <font-awesome-icon style="margin-right: .5rem" v-for="(language, index) in portfolioItem.languagesUsed" :key="index"
-                               :icon="['fab', getIcon(language)]"></font-awesome-icon>
+            <font-awesome-icon
+              style="margin-right: 0.5rem"
+              v-for="(language, index) in portfolioItem.languagesUsed"
+              :key="index"
+              :icon="['fab', getIcon(language)]"
+            ></font-awesome-icon>
           </div>
           <span></span>
         </a>
@@ -128,7 +136,7 @@ const getIcon = (key) => {
   .portfolio-item-title {
     margin-top: 3%;
     color: #222;
-    font-family: 'Eczar', serif;
+    font-family: "Eczar", serif;
     font-size: 2rem;
   }
 
@@ -140,7 +148,7 @@ const getIcon = (key) => {
   }
 
   .sub-title {
-    font-family: 'Eczar', serif;
+    font-family: "Eczar", serif;
     font-size: 1rem;
     line-height: 24px;
     margin-top: 10px;
@@ -153,7 +161,9 @@ const getIcon = (key) => {
     width: 50px;
   }
 
-  a, a:visited, a:hover {
+  a,
+  a:visited,
+  a:hover {
     text-decoration: none;
   }
 
@@ -166,11 +176,12 @@ const getIcon = (key) => {
       opacity: 0;
       position: absolute;
       right: 0;
-      transition: .5s ease;
+      transition: 0.5s ease;
       top: 0;
       width: 100%;
 
-      &::before, &::after {
+      &::before,
+      &::after {
         content: "";
         width: 0;
         height: 4px;
@@ -192,7 +203,7 @@ const getIcon = (key) => {
       }
 
       &:hover {
-        opacity: .65;
+        opacity: 0.65;
         background-color: white;
 
         .image {
@@ -204,19 +215,23 @@ const getIcon = (key) => {
         }
       }
 
-      &:hover::before, &:hover::after {
+      &:hover::before,
+      &:hover::after {
         width: 100%;
       }
 
-      &:hover span::before, &:hover span::after {
+      &:hover span::before,
+      &:hover span::after {
         height: 100%;
       }
 
-      &:hover::before, &:hover::after {
+      &:hover::before,
+      &:hover::after {
         left: 0;
       }
 
-      &:hover span::before, &:hover span::after {
+      &:hover span::before,
+      &:hover span::after {
         top: 0;
       }
     }
@@ -225,7 +240,8 @@ const getIcon = (key) => {
       display: block;
       padding: 25px 80px;
 
-      &::before, &::after {
+      &::before,
+      &::after {
         content: "";
         width: 4px;
         height: 0;
@@ -259,7 +275,55 @@ const getIcon = (key) => {
       text-align: left;
     }
 
-    .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .portfolio-container {
+    .col-lg-1,
+    .col-lg-10,
+    .col-lg-11,
+    .col-lg-12,
+    .col-lg-2,
+    .col-lg-3,
+    .col-lg-4,
+    .col-lg-5,
+    .col-lg-6,
+    .col-lg-7,
+    .col-lg-8,
+    .col-lg-9,
+    .col-md-1,
+    .col-md-10,
+    .col-md-11,
+    .col-md-12,
+    .col-md-2,
+    .col-md-3,
+    .col-md-4,
+    .col-md-5,
+    .col-md-6,
+    .col-md-7,
+    .col-md-8,
+    .col-md-9,
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9,
+    .col-xs-1,
+    .col-xs-10,
+    .col-xs-11,
+    .col-xs-12,
+    .col-xs-2,
+    .col-xs-3,
+    .col-xs-4,
+    .col-xs-5,
+    .col-xs-6,
+    .col-xs-7,
+    .col-xs-8,
+    .col-xs-9,
+    .portfolio-container {
       padding-right: 0;
       padding-left: 0;
     }

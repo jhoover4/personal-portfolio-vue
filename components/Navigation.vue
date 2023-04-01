@@ -1,13 +1,49 @@
 <script setup>
+const emit = defineEmits(["navOpen", "navClose"]);
+
+const siteLinks = [
+  {
+    name: "Home",
+    url: "/",
+  },
+  {
+    name: "Portfolio",
+    url: "/portfolio",
+  },
+  {
+    name: "Blog",
+    url: "/blog",
+  },
+];
+
 const hamburgerOpen = ref(false);
+const navHeight = ref(50);
+const linkMarginTop = ref(100);
+const linkOpacity = ref(0);
 
 const onHamburgerClick = () => {
   hamburgerOpen.value = !hamburgerOpen.value;
+
+  if (hamburgerOpen.value) {
+    emit("navOpen");
+    navHeight.value = 300;
+    linkMarginTop.value = 0;
+    linkOpacity.value = 1;
+  } else {
+    emit("navClose");
+    navHeight.value = 50;
+    linkMarginTop.value = 100;
+    linkOpacity.value = 0;
+  }
 };
 </script>
 
 <template>
-  <nav id="navigation" class="mt-3 pl-md-4">
+  <nav
+    id="navigation"
+    class="mt-3 pl-md-4"
+    :style="{ height: navHeight + 'px' }"
+  >
     <button
       class="hamburger hamburger--spin"
       type="button"
@@ -18,13 +54,16 @@ const onHamburgerClick = () => {
         <span class="hamburger-inner"></span>
       </span>
     </button>
-    <Transition>
-      <ul class="menulist underline-expand" v-if="hamburgerOpen">
-        <NuxtLink to="/" class="menuitems">Home</NuxtLink>
-        <NuxtLink to="/portfolio" class="menuitems">Portfolio</NuxtLink>
-        <NuxtLink to="/blog" class="menuitems">Blog</NuxtLink>
-      </ul>
-    </Transition>
+    <ul class="menulist underline-expand">
+      <li v-for="(link, index) in siteLinks" :key="index">
+        <NuxtLink
+          :to="link.url"
+          class="menuitems"
+          :style="{ marginTop: linkMarginTop + 'px', opacity: linkOpacity }"
+          >{{ link.name }}
+        </NuxtLink>
+      </li>
+    </ul>
   </nav>
 </template>
 
@@ -67,6 +106,7 @@ nav {
   display: inline-block;
   text-align: left;
   color: black;
+  transition: all 0.5s ease-in-out;
 
   &:after {
     content: "";
@@ -80,19 +120,5 @@ nav {
   &:hover::after {
     width: 100%;
   }
-}
-
-.v-enter-active,
-.v-leave-active {
-  transition: opacity 0.5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-}
-
-.nav-open.menuitems {
-  margin-top: 50px;
 }
 </style>
