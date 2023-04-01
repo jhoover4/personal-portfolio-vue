@@ -3,6 +3,8 @@ definePageMeta({
   layout: "custom",
 });
 
+const doTransition = ref(false);
+
 const email = ref("jordan@hoovermld.com");
 const portfolios = ref([
   {
@@ -51,6 +53,10 @@ const nextPortfolio = () => {
     portfolios.value[currentIndex + 1].active = true;
   }
 };
+
+onMounted(() => {
+  doTransition.value = true;
+});
 </script>
 
 <template>
@@ -59,7 +65,7 @@ const nextPortfolio = () => {
       <div class="col-sm-6">
         <Navigation />
         <Transition appear name="fade">
-          <div class="left-side main">
+          <div class="left-side main" v-if="doTransition">
             <h1>
               Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.
             </h1>
@@ -71,19 +77,15 @@ const nextPortfolio = () => {
             <div class="contact">
               <a :href="`mailto:${email}`">Contact Me</a>
             </div>
-            <Transition appear name="fade-in-links">
-              <div class="portfolio-links">
-                <a href="https://github.com/jhoover4" target="_blank">Github</a>
-                <a href="https://codepen.io/jhoover4/" target="_blank"
-                  >CodePen</a
-                >
-                <a
-                  href="https://www.linkedin.com/in/jordanhoover/"
-                  target="_blank"
-                  >LinkedIn</a
-                >
-              </div>
-            </transition>
+            <div class="portfolio-links">
+              <a href="https://github.com/jhoover4" target="_blank">Github</a>
+              <a href="https://codepen.io/jhoover4/" target="_blank">CodePen</a>
+              <a
+                href="https://www.linkedin.com/in/jordanhoover/"
+                target="_blank"
+                >LinkedIn</a
+              >
+            </div>
           </div>
         </Transition>
       </div>
@@ -141,19 +143,19 @@ const nextPortfolio = () => {
   float: right;
 }
 
-.fade-in-enter-active,
-.fade-in-leave-active {
-  opacity: 0;
-  top: 5%;
-  -webkit-animation: fadein 2s ease-out; /* Safari, Chrome and Opera > 12.1 */
-  -moz-animation: fadein 2s ease-out; /* Firefox < 16 */
-  -o-animation: fadein 2s ease-out; /* Opera < 12.1 */
-  animation: fadein 2s ease-out;
+.left-side {
+  padding: 15% 10%;
 }
 
-.fade-in-enter-from,
-.fade-in-leave-to {
-  opacity: 100;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 2s ease-out;
+  top: 5%;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 
 .portfolio-img {
