@@ -12,38 +12,47 @@ const languageChoices = new Map([
 ]);
 
 const portfolios = ref([
+  // {
+  //   title: "Mineral Catalog",
+  //   url: "https://www.google.com",
+  //   img: {
+  //     alt: "We Will Not Be Tamed Site",
+  //     url: "/img/wwnbt-site.jpg",
+  //   },
+  //   languagesUsed: ["python", "api"],
+  // },
+  // {
+  //   title: "Pug or Ugh API",
+  //   url: "https://www.google.com",
+  //   img: {
+  //     alt: "We Will Not Be Tamed Site",
+  //     url: "/img/wwnbt-site.jpg",
+  //   },
+  //   languagesUsed: ["python", "javascript", "react", "api"],
+  // },
   {
-    title: "Mineral Catalog",
-    url: "https://www.google.com",
+    title: "Student Filtering App",
+    url: "https://jhoover4.github.io/list-pagination-and-filtering",
     img: {
-      alt: "We Will Not Be Tamed Site",
-      url: "/img/wwnbt-site.jpg",
+      alt: "Student Filtering App Image",
+      url: "/img/filtering-app.png",
     },
-    languagesUsed: ["python", "api"],
-  },
-  {
-    title: "Pug or Ugh API",
-    url: "https://www.google.com",
-    img: {
-      alt: "We Will Not Be Tamed Site",
-      url: "/img/wwnbt-site.jpg",
-    },
-    languagesUsed: ["python", "javascript", "react", "api"],
+    languagesUsed: ["javascript", "react"],
   },
   {
     title: "Morisson Design Site",
-    url: "https://www.google.com",
+    url: "https://jhoover4.github.io/designer-portfolio-template",
     img: {
-      alt: "We Will Not Be Tamed Site",
-      url: "/img/wwnbt-site.jpg",
+      alt: "Designer Portfolio Image",
+      url: "/img/designer-portfolio.png",
     },
     languagesUsed: ["python", "javascript", "sass"],
   },
   {
-    title: "Gear Up For Game Wardens",
+    title: "Gear Up For Game Wardens Site",
     url: "https://www.gearupforgamewardens.org/",
     img: {
-      alt: "We Will Not Be Tamed Site",
+      alt: "Gear Up For Game Wardens Image",
       url: "/img/gear-up-for-game-wardens.png",
     },
     languagesUsed: ["php", "javascript", "css"],
@@ -52,7 +61,7 @@ const portfolios = ref([
     title: "We Will Not Be Tamed Site",
     url: "https://www.wewillnotbetamed.org",
     img: {
-      alt: "We Will Not Be Tamed Site",
+      alt: "We Will Not Be Tamed Image",
       url: "/img/wwnbt-site.jpg",
     },
     languagesUsed: ["php", "javascript", "css"],
@@ -61,8 +70,8 @@ const portfolios = ref([
     title: "Password Strength Meter",
     url: "https://elboletaire.github.io/password-strength-meter/",
     img: {
-      alt: "We Will Not Be Tamed Site",
-      url: "/img/wwnbt-site.jpg",
+      alt: "Password Strength Meter Image",
+      url: "/img/password-strength-plugin.png",
     },
     languagesUsed: ["javascript", "node", "css"],
   },
