@@ -14,7 +14,7 @@ const languageChoices = new Map([
 const portfolios = ref([
   {
     title: "Mineral Catalog",
-    url: "mineral-catalog.jordanhoover.me",
+    url: "https://mineral-catalog.jordanhoover.me",
     img: {
       alt: "Mackys Minerals Catalog",
       url: "/img/mackys-minerals.png",
