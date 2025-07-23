@@ -12,15 +12,15 @@ const languageChoices = new Map([
 ]);
 
 const portfolios = ref([
-  // {
-  //   title: "Mineral Catalog",
-  //   url: "https://www.google.com",
-  //   img: {
-  //     alt: "We Will Not Be Tamed Site",
-  //     url: "/img/wwnbt-site.jpg",
-  //   },
-  //   languagesUsed: ["python", "api"],
-  // },
+  {
+    title: "Mineral Catalog",
+    url: "mineral-catalog.jordanhoover.me",
+    img: {
+      alt: "Mackys Minerals Catalog",
+      url: "/img/mackys-minerals.png",
+    },
+    languagesUsed: ["python", "api"],
+  },
   // {
   //   title: "Pug or Ugh API",
   //   url: "https://www.google.com",
