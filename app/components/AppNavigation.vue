@@ -51,7 +51,7 @@ const onHamburgerClick = () => {
       @click="onHamburgerClick"
     >
       <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
+        <span class="hamburger-inner" />
       </span>
     </button>
     <ul class="menulist underline-expand">

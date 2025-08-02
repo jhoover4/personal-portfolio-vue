@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navigation />
+    <AppNavigation />
     <slot />
   </div>
 </template>

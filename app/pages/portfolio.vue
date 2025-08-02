@@ -95,13 +95,13 @@ const getIcon = (key) => {
       <p>
         Just a few examples of my work, see my
         <a href="https://github.com/jhoover4">GitHub</a> for project source
-        code.<br /><b>I'm currently working on rehosting my apps!</b> Please see
-        the <a href="/blog/heroku">explanation here</a>.
+        code.
       </p>
     </header>
     <div class="gallery-container">
       <div
         v-for="portfolioItem in portfolios"
+        :key="portfolioItem"
         class="col-xs-12 col-sm-6 col-md-4 col-lg-4 cell-container gallery-thumbnail-container"
       >
         <img
@@ -117,15 +117,15 @@ const getIcon = (key) => {
         >
           <div class="portfolio-item-title px-md-5">
             <p>{{ portfolioItem.title }}</p>
-            <div class="divider"></div>
+            <div class="divider" />
             <font-awesome-icon
-              style="margin-right: 0.5rem"
               v-for="(language, index) in portfolioItem.languagesUsed"
               :key="index"
+              style="margin-right: 0.5rem"
               :icon="['fab', getIcon(language)]"
-            ></font-awesome-icon>
+            />
           </div>
-          <span></span>
+          <span />
         </a>
       </div>
     </div>

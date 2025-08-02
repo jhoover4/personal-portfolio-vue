@@ -1,6 +1,5 @@
 <script setup>
-const posts = await queryContent("/").find();
-posts.reverse();
+const posts = await queryCollection("blog").order("date", "DESC").all();
 </script>
 
 <template>
@@ -13,16 +12,15 @@ posts.reverse();
         </div>
         <div
           v-for="post in posts"
-          :key="post._id"
+          :key="post.id"
           class="blog-post-listing pt-3 pb-3"
         >
           <h2 class="underline-expand">
-            <a :href="post._path">{{ post.title }}</a>
+            <a :href="post.path">{{ post.title }}</a>
           </h2>
           <p class="meta">
-            <font-awesome-icon icon="fa fa-calendar-days" class="pr-1" />{{
-              post.date
-            }}
+            <font-awesome-icon icon="fa fa-calendar-days" class="pr-1" />
+            {{ formatDate(post.date) }}
           </p>
           {{ post.description }}
         </div>

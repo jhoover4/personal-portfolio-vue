@@ -55,6 +55,7 @@ node_modules/
 # nuxt.js build output
 .nuxt
 .output
+.data
 
 # System Files
 .DS_Store

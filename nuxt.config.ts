@@ -1,5 +1,6 @@
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  compatibilityDate: "2025-07-23",
   app: {
     head: {
       link: [
@@ -21,18 +22,19 @@ export default defineNuxtConfig({
   },
   target: "static",
   telemetry: false,
-  modules: ["@nuxt/content"],
+  modules: ["@nuxt/content", "@nuxt/eslint"],
   buildModules: ["nuxt-vite"],
   css: [
-    "~/node_modules/bootstrap/dist/css/bootstrap.min.css",
-    "~/node_modules/hamburgers/dist/hamburgers.min.css",
+    "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "./node_modules/hamburgers/dist/hamburgers.min.css",
     "@fortawesome/fontawesome-svg-core/styles.css",
-    "@/assets/scss/style.scss",
+    "./app/assets/scss/style.scss",
   ],
   script: [
     {
-      src: "~/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+      src: "./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
       mode: "client",
     },
   ],
+  devtools: { enabled: true },
 });

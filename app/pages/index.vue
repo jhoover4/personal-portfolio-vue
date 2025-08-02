@@ -44,7 +44,7 @@ const portfolioLinks = ref([
 ]);
 
 const currentPortfolioIndex = computed(() =>
-  portfolios.value.findIndex((portfolio) => portfolio.active)
+  portfolios.value.findIndex((portfolio) => portfolio.active),
 );
 const lastIndex = computed(() => portfolios.value.length - 1);
 
@@ -87,9 +87,9 @@ onMounted(() => {
   <div id="home-body" class="container-fluid">
     <div class="row">
       <div class="col-sm-6">
-        <Navigation @nav-open="onNavOpen" @nav-close="onNavClose" />
+        <AppNavigation @nav-open="onNavOpen" @nav-close="onNavClose" />
         <Transition appear>
-          <div class="left-side main" v-if="doTransition">
+          <div v-if="doTransition" class="left-side main">
             <h1>
               Hi, I'm Jordan Hoover - a full-stack developer from Dallas, Texas.
             </h1>
@@ -142,7 +142,7 @@ onMounted(() => {
             data-slide="prev"
             @click.prevent="prevPortfolio"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="carousel-control-prev-icon" aria-hidden="true" />
             <span class="sr-only">Previous</span>
           </a>
           <a
@@ -152,7 +152,7 @@ onMounted(() => {
             data-slide="next"
             @click.prevent="nextPortfolio"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="carousel-control-next-icon" aria-hidden="true" />
             <span class="sr-only">Next</span>
           </a>
         </div>
