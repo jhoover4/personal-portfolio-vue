@@ -1,6 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-23",
+  nitro: {
+    preset: "cloudflare_module",
+    cloudflare: {
+      deployConfig: true,
+      nodeCompat: true,
+    },
+  },
   app: {
     head: {
       link: [
@@ -18,6 +25,12 @@ export default defineNuxtConfig({
           href: "https://fonts.googleapis.com/css?family=Muli:300,400",
         },
       ],
+    },
+  },
+  content: {
+    database: {
+      type: "d1",
+      bindingName: "CF_BINDING_NAME",
     },
   },
   target: "static",
