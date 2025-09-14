@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: "2025-07-23",
+  compatibilityDate: "2025-07-15",
   vite: {
     vue: {
       customElement: true,
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     },
   },
   telemetry: false,
-  modules: ["@nuxt/content", "@nuxt/eslint"],
+  modules: ["@nuxt/content", "@nuxt/eslint", "nitro-cloudflare-dev"],
   css: [
     "./node_modules/bootstrap/dist/css/bootstrap.min.css",
     "./node_modules/hamburgers/dist/hamburgers.min.css",
