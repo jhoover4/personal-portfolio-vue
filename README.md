@@ -21,3 +21,12 @@ The blog page data model can be found in `content.config.ts`. More information o
 [here](https://content.nuxt.com/docs/collections/define).
 
 Nuxt content will take these and render them with some customizations from the `pages/blog` folder.
+
+## Deploy
+
+To build a static website nuxt uses the command `nuxt generate` instead of `nuxt build` which is for generate SSR as well.
+I've removed `nuxt build` from the `package.json` as I won't need to use server side rendering in this app.
+
+For deploying to cloudflare see the [nuxt documentation](https://nuxt.com/deploy/cloudflare) in tandem with the 
+[nuxt content documentation](https://content.nuxt.com/docs/deploy/cloudflare-workers). Nuxt content now uses SQLite as a
+backend, so a [cloudflare D1 worker](https://developers.cloudflare.com/d1/) needs to be created to support it.
