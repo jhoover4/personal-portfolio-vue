@@ -29,4 +29,4 @@ I've removed `nuxt build` from the `package.json` as I won't need to use server 
 
 For deploying to cloudflare see the [nuxt documentation](https://nuxt.com/deploy/cloudflare) in tandem with the 
 [nuxt content documentation](https://content.nuxt.com/docs/deploy/cloudflare-workers). Nuxt content now uses SQLite as a
-backend, so a [cloudflare D1 worker](https://developers.cloudflare.com/d1/) needs to be created to support it.
+backend, so a [cloudflare D1 worker](https://developers.cloudflare.com/d1/) needs to be created to support it. ss
