@@ -16,7 +16,6 @@ export default defineNuxtConfig({
       nodeCompat: true,
     },
   },
-  ssr: false,
   app: {
     head: {
       link: [
