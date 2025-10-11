@@ -38,7 +38,7 @@ export default defineNuxtConfig({
   content: {
     database: {
       type: "d1",
-      bindingName: "CF_BINDING_NAME",
+      bindingName: "D1_BINDING",
     },
   },
   telemetry: false,
